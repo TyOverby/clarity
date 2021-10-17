@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        button.primary {
+            background-color: #1BA1F2;
+            color:white;
+            outline-color: #1BA1F2;
+        }
+        button.primary u {
+            text-decoration-color: #b3defb;
+        }
+        button.primary:focus u {
+            text-decoration-color:#1BA1F2;
+        }
+        button.primary:focus {
+            outline: 2.0px dashed #b3defb;
+        }
+        button.primary::before {
+            background:#007bc5;
+        }
+
+        button.danger {
+            background-color: #f2581b;
+            color:white;
+            outline-color: #f2461b;
+        }
+        button.danger u {
+            text-decoration-color: #fbbeb3;
+        }
+        button.danger:focus u {
+            text-decoration-color:#f24d1b;
+        }
+        button.danger:focus {
+            outline: 2.0px dashed #fbbeb3;
+        }
+        button.danger::before {
+            background:#c51e00;
+        }
+
+        button.safe {
+            background-color: #57c961;
+            color:white;
+            outline-color: #57c961;
+            outline-offset:-2px;
+        }
+        button.safe u {
+            text-decoration-color: #b3fbb3;
+        }
+        button.safe:focus u {
+            text-decoration-color:#57c961;
+        }
+        button.safe:focus {
+            outline: 2.0px dashed #bffbb3;
+        }
+        button.safe::before {
+            background:#3e9233;
+        }
+
+        button.subtle {
+            background-color: #fffcdf;
+            color:#3a3a3a;
+            outline-color: #cec67c;
+        }
+        button.subtle u {
+            text-decoration-color: #cec67c;
+        }
+        button.subtle:focus u {
+            text-decoration-color: #fffcdf;
+        }
+        button.subtle:focus {
+            outline: 1.5px dashed #cec67c;
+        }
+        button.subtle::before {
+            background:#8b854a;
+        }
+        button.subtle::after{
+            border: 1px solid #8b854a;
+            border-bottom:none;
+            border-radius:inherit;
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            border-radius:3px;
+        }
+
+        button {
+            all:unset;
+            text-align: center;
+            padding:5px 10px;
+            margin-top:5px;
+            font-family: sans-serif;
+            border-radius: 3px;
+            position:relative;
+            cursor:pointer;
+            transform-style:preserve-3d;
+
+            transition:
+                    linear 0.07s outline-color, 
+                    linear 0.07s outline-offset, 
+                    linear 0.07s transform,
+                    linear 0.07s border-radius;
+        }
+
+        button u {
+            text-underline-position: from-font;
+            text-underline-offset: 1px;
+            transition: linear 0.07s text-decoration-color;
+        }
+
+        button:hover {
+            transform:translateY(-1px);
+            border-radius:4px;
+        }
+
+        button:focus {
+            outline-offset: -5px
+        }
+
+        button:active, button.active {
+            transform:translateY(4px);
+        }
+
+        button::before {
+            content:"";
+            border-radius:2px;
+            transform: translateZ(-1px);
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:3px;
+            left:0px;
+
+            transition: 
+                linear 0.07s top,
+                linear 0.07s transform,
+                linear 0.07s border-radius;
+        }
+
+        button:hover::before {
+            top:4px;
+            border-radius:3px;
+        }
+
+        button:active::before, button.active::before {
+            top:0px;
+            border-radius:5px;
+        }
+
+        button:disabled {
+            cursor:not-allowed;
+        }
+        button:disabled u {
+            text-decoration:none;
+        }
+        button:disabled:hover {
+            transform:translateY(0px);
+            border-radius:3px;
+        }
+        button:disabled:hover::before {
+            top:3px;
+            border-radius:2px;
+        }
+
+        button:disabled::before {
+            filter:saturate(0.75);
+        }
+        button:disabled::after {
+            bottom:0px;
+            content:"";
+            bottom:-3px;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0,0,0,0.3),
+                rgba(0,0,0,0.3) 6px,
+                rgba(0,0,0,0.8) 6px,
+                rgba(0,0,0,0.8) 10px
+                );
+            mix-blend-mode: saturation;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2> Buttons </h2>
+        <button class="primary"> <u>L</u>aunch Rockets!</button>
+        <button class="danger"> <u>A</u>bort!</button>
+        <button class="safe"> <u>P</u>roceed!</button>
+        <button class="subtle"> <u>+</u></button>
+    </div>
+    <div>
+        <h2> Buttons (disabled) </h2>
+        <button disabled class="primary"> <u>L</u>aunch Rockets!</button>
+        <button disabled class="danger"> <u>A</u>bort!</button>
+        <button disabled class="safe"> <u>P</u>roceed!</button>
+        <button disabled class="subtle"> <u>+</u></button>
+    </div>
+    <script>
+        function go(which) {
+            var button = document.querySelector("button."+which);
+            button.className = "active "+ which;
+            setTimeout(function (){ button.className = which}, 1000 * 0.14);
+        }
+
+    document.body.onkeydown = function (evt) {
+        if (evt.key === "l") {
+            go("primary");
+        }
+        if (evt.key === "a") {
+            go("danger");
+        }
+        if (evt.key === "p") {
+            go("safe");
+        }
+        if (evt.key === "+") {
+            go("subtle");
+        }
+    };
+
+    </script>
+</body>
