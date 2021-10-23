@@ -20,12 +20,23 @@
         <button disabled class="btn subtle"> <u>+</u> Append</button>
     </div>
     <script>
+        function make_active(e) {
+            let prev_classname = e.className;
+            e.className = prev_classname + " active";
+            setTimeout(function() {
+                e.className = prev_classname;
+            }, 1000 * 0.14);
+        }
+
         function go(which) {
             var button = document.querySelector("button." + which);
-            button.className = "btn active " + which;
-            setTimeout(function() {
-                button.className = "btn " + which
-            }, 1000 * 0.14);
+            make_active(button);
+        }
+
+        for (let e of document.querySelectorAll(".btn")) {
+            e.onclick = function() {
+                make_active(e);
+            };
         }
 
         document.body.onkeydown = function(evt) {
