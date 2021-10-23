@@ -25,6 +25,8 @@ button.btn {
     color: var(--fg);
     z-index: 99;
     transform: translateZ(1px);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 button.btn:disabled {
