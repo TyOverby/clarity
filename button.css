@@ -1,0 +1,129 @@
+body {
+    font-family: sans-serif;
+}
+
+button.btn {
+    --fast: 0.07s;
+    --slow: 0.14s;
+    --anim-style: linear;
+    all: unset;
+    text-align: center;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-family: sans-serif;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    outline-offset: -3px;
+    outline: 1.0px solid var(--ol);
+    transition: var(--anim-style) var(--fast) outline, var(--anim-style) var(--fast) outline-offset, var(--anim-style) var(--fast) transform, var(--anim-style) var(--fast) border-radius;
+    /* custom variables */
+    background-color: var(--bg);
+    outline-color: var(--bg);
+    color: var(--fg);
+    z-index: 99;
+    transform: translateZ(1px);
+}
+
+button.btn:disabled {
+    cursor: not-allowed;
+    outline: none;
+    background: repeating-linear-gradient( 45deg, var(--bg), var(--bg) 6px, var(--dsbl) 6px, var(--dsbl) 12px);
+}
+
+button.btn::before {
+    content: "";
+    border-radius: 2px;
+    transform: translateZ(-1px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    transition: linear 0.07s transform;
+    background: var(--bg);
+    filter: brightness(70%);
+    z-index: 0;
+}
+
+button.btn:hover:not(:disabled),
+button.btn:focus:not(:disabled) {
+    transform: translateY(-1px) translateZ(-1px);
+}
+
+button.btn:hover:not(:disabled)::before,
+button.btn:focus:not(:disabled)::before {
+    transform: translateY(1px) translateZ(-1px);
+}
+
+button.btn:disabled::before {
+    /* 6 root 2 */
+    --gap: 8.485281374238px;
+    --fill: calc(2 * var(--gap));
+    background: repeating-linear-gradient(90deg, var(--bg), var(--bg) var(--gap), var(--dsbl) var(--gap), var(--dsbl) var(--fill));
+}
+
+button.btn:focus {
+    outline-offset: -4px;
+    outline: 2.0px solid var(--ol, #1BA1F2);
+}
+
+button.btn:active:not(:disabled),
+button.btn.active:not(:disabled) {
+    transform: translateY(3px);
+    border-radius: 2px;
+}
+
+button.btn:active:not(:disabled)::before,
+button.btn.active:not(:disabled)::before {
+    transform: translateY(-3px) translateZ(-1px);
+}
+
+button.btn u {
+    text-underline-position: from-font;
+    text-underline-offset: 1px;
+    transition: var(--anim-style) var(--slow) text-decoration-color;
+}
+
+button.btn:disabled u {
+    text-decoration: none;
+}
+
+button.btn u {
+    text-decoration-color: var(--ol);
+}
+
+button.btn:focus u {
+    text-decoration-color: var(--bg);
+}
+
+button.btn.primary {
+    --dsbl: #357eac;
+    --bg: #1BA1F2;
+    --ol: #b3defb;
+    --fg: white;
+}
+
+button.btn.danger {
+    --dsbl: #aa5635;
+    --bg: #f2581b;
+    --ol: #fbbeb3;
+    --fg: white;
+}
+
+button.btn.safe {
+    --dsbl: #549259;
+    --bg: #57c961;
+    --ol: #9fe6a4;
+    --fg: white;
+}
+
+button.btn.subtle {
+    box-shadow: inset 0 0 0 1px #b2b2a4;
+    outline-offset: -2px;
+    --ol: #1BA1F2;
+    --dsbl: #cccaab;
+    --bg: #fffeeb;
+    --fg: black;
+}
