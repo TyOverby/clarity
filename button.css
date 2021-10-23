@@ -6,9 +6,10 @@ button.btn {
     --fast: 0.07s;
     --slow: 0.14s;
     --anim-style: linear;
+    box-sizing: border-box;
     font-size: 1em;
     border: 0;
-    text-align: center;
+    text-align: left;
     padding: 5px 10px;
     margin-top: 5px;
     font-family: sans-serif;
@@ -38,6 +39,7 @@ button.btn:disabled {
 
 button.btn::before {
     content: "";
+    box-sizing: border-box;
     border-radius: 2px;
     transform: translateZ(-1px);
     width: 100%;
@@ -123,11 +125,79 @@ button.btn.safe {
     --fg: white;
 }
 
+button.btn.subtle:not(:focus) {
+    outline-offset: -1px;
+    outline: 1px solid #b2b2a4;
+}
+
 button.btn.subtle {
-    box-shadow: inset 0 0 0 1px #b2b2a4;
     outline-offset: -2px;
     --ol: #1BA1F2;
     --dsbl: #cccaab;
     --bg: #fffeeb;
     --fg: black;
+}
+
+button.btn.small {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 3px 5px;
+}
+
+button.btn.small u {
+    text-decoration-thickness: 2px;
+    text-underline-position: unset;
+    text-underline-offset: unset;
+}
+
+div.btn-group-hz {
+    display: flex;
+}
+
+div.btn-group-hz button.btn:first-child,
+div.btn-group-hz button.btn:first-child::before {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+div.btn-group-hz button.btn:last-child,
+div.btn-group-hz button.btn:last-child::before {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: inset 1px 0 0 0px var(--dsbl);
+}
+
+div.btn-group-hz button.btn:not(:last-child):not(:first-child),
+div.btn-group-hz button.btn:not(:last-child):not(:first-child)::before {
+    border-radius: 0;
+    box-shadow: inset 1px 0 0 0px var(--dsbl);
+}
+
+div.btn-group-vrt {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+div.btn-group-vrt button.btn:first-child,
+div.btn-group-vrt button.btn:first-child::before {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+div.btn-group-vrt button.btn:last-child,
+div.btn-group-vrt button.btn:last-child::before {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /*box-shadow: inset 1px 0 0 0px var(--dsbl);*/
+}
+
+div.btn-group-vrt button.btn:not(:last-child):not(:first-child),
+div.btn-group-vrt button.btn:not(:last-child):not(:first-child)::before {
+    border-radius: 0;
+    box-shadow: inset 0 1px 0 0px var(--dsbl);
+}
+
+div.btn-group-vrt button.btn:not(:first-child) {
+    margin-top: 0px;
 }
