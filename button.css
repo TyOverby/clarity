@@ -6,7 +6,8 @@ button.btn {
     --fast: 0.07s;
     --slow: 0.14s;
     --anim-style: linear;
-    all: unset;
+    font-size: 1em;
+    border: 0;
     text-align: center;
     padding: 5px 10px;
     margin-top: 5px;
