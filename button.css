@@ -27,6 +27,7 @@ button.btn {
     transform: translateZ(1px);
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 button.btn:disabled {
