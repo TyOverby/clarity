@@ -2,73 +2,112 @@
 
 <head>
     <link rel="stylesheet" href="button.css" />
+    <link rel="stylesheet" href="checkbox.css" />
+    <style>
+        body {
+            background: #f8f5d8;
+            color: #374453;
+        }
+        
+        details {
+            margin: 1em;
+            margin-left: 2em;
+        }
+        
+        summary {
+            font-size: 2em;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <h2> Buttons </h2>
-        <button class="btn primary"> <u>L</u>aunch Rockets!</button>
-        <button class="btn danger"> <u>A</u>bort!</button>
-        <button class="btn safe"> <u>P</u>roceed!</button>
-        <button class="btn subtle"> <u>+</u> Append</button>
-    </div>
-    <div>
-        <h3> Small </h3>
-        <button class="btn primary small"> <u>L</u>aunch Rockets!</button>
-        <button class="btn danger small"> <u>A</u>bort!</button>
-        <button class="btn safe small"> <u>P</u>roceed!</button>
-        <button class="btn subtle small"> <u>+</u> Append</button>
-    </div>
-    <div>
-        <h3> Disabled </h3>
-        <button disabled class="btn primary"> <u>L</u>aunch Rockets!</button>
-        <button disabled class="btn danger"> <u>A</u>bort!</button>
-        <button disabled class="btn safe"> <u>P</u>roceed!</button>
-        <button disabled class="btn subtle"> <u>+</u> Append</button>
-    </div>
-    <div>
-        <h3> Small Disabled </h3>
-        <button disabled class="btn small primary"> <u>L</u>aunch Rockets!</button>
-        <button disabled class="btn small danger"> <u>A</u>bort!</button>
-        <button disabled class="btn small safe"> <u>P</u>roceed!</button>
-        <button disabled class="btn small subtle"> <u>+</u> Append</button>
-    </div>
-    <div>
-        <h3> H Group </h3>
-        <div class="btn-group-hz">
+    <details open>
+        <summary> Checkboxes </summary>
+        <div>
+            <input type="checkbox" class="btn primary" data-text="Wash Dishes">
+            <input type="checkbox" checked class="btn primary" data-text="Wash Dishes">
+        </div>
+    </details>
+    <details>
+        <summary> Buttons </summary>
+
+        <div>
+            <h2> Regular </h2>
             <button class="btn primary"> <u>L</u>aunch Rockets!</button>
             <button class="btn danger"> <u>A</u>bort!</button>
+            <button class="btn warn"> <u>A</u>bort!</button>
             <button class="btn safe"> <u>P</u>roceed!</button>
             <button class="btn subtle"> <u>+</u> Append</button>
         </div>
-    </div>
-    <div>
-        <h3> V Group </h3>
-        <div class="btn-group-vrt">
-            <button class="btn primary"> <u>L</u>aunch Rockets!</button>
-            <button class="btn danger"> <u>A</u>bort!</button>
-            <button class="btn safe"> <u>P</u>roceed!</button>
-            <button class="btn subtle"> <u>+</u> Append</button>
+        <div>
+            <h3> Small </h3>
+            <button class="btn primary small"> <u>L</u>aunch Rockets!</button>
+            <button class="btn danger small"> <u>A</u>bort!</button>
+            <button class="btn warn small"> <u>A</u>bort!</button>
+            <button class="btn safe small"> <u>P</u>roceed!</button>
+            <button class="btn subtle small"> <u>+</u> Append</button>
         </div>
-    </div>
-    <div>
-        <h3> Small H Group </h3>
-        <div class="btn-group-hz">
-            <button class="btn small primary"> <u>L</u>aunch Rockets!</button>
-            <button class="btn small danger"> <u>A</u>bort!</button>
-            <button class="btn small safe"> <u>P</u>roceed!</button>
-            <button class="btn small subtle"> <u>+</u> Append</button>
+        <div>
+            <h3> Disabled </h3>
+            <button disabled class="btn primary"> <u>L</u>aunch Rockets!</button>
+            <button disabled class="btn danger"> <u>A</u>bort!</button>
+            <button disabled class="btn warn"> <u>A</u>bort!</button>
+            <button disabled class="btn safe"> <u>P</u>roceed!</button>
+            <button disabled class="btn subtle"> <u>+</u> Append</button>
         </div>
-    </div>
-    <div>
-        <h3> Small V Group </h3>
-        <div class="btn-group-vrt">
-            <button class="btn small primary"> <u>L</u>aunch Rockets!</button>
-            <button class="btn small danger"> <u>A</u>bort!</button>
-            <button class="btn small safe"> <u>P</u>roceed!</button>
-            <button class="btn small subtle"> <u>+</u> Append</button>
+        <div>
+            <h3> Small Disabled </h3>
+            <button disabled class="btn small primary"> <u>L</u>aunch Rockets!</button>
+            <button disabled class="btn small danger"> <u>A</u>bort!</button>
+            <button disabled class="btn small warn"> <u>A</u>bort!</button>
+            <button disabled class="btn small safe"> <u>P</u>roceed!</button>
+            <button disabled class="btn small subtle"> <u>+</u> Append</button>
         </div>
-    </div>
+        <div>
+            <h3> H Group </h3>
+            <div class="btn-group-hz">
+                <button class="btn primary"> <u>L</u>aunch Rockets!</button>
+                <button class="btn danger"> <u>A</u>bort!</button>
+                <button class="btn warn"> <u>A</u>bort!</button>
+                <button class="btn safe"> <u>P</u>roceed!</button>
+                <button class="btn subtle"> <u>+</u> Append</button>
+            </div>
+        </div>
+        <div>
+            <h3> V Group </h3>
+            <div class="btn-group-vrt">
+                <button class="btn primary"> <u>L</u>aunch Rockets!</button>
+                <button class="btn danger"> <u>A</u>bort!</button>
+                <button class="btn warn"> <u>A</u>bort!</button>
+                <button class="btn safe"> <u>P</u>roceed!</button>
+                <button class="btn subtle"> <u>+</u> Append</button>
+            </div>
+        </div>
+        <div>
+            <h3> Small H Group </h3>
+            <div class="btn-group-hz">
+                <button class="btn small primary"> <u>L</u>aunch Rockets!</button>
+                <button class="btn small danger"> <u>A</u>bort!</button>
+                <button class="btn small warn"> <u>A</u>bort!</button>
+                <button class="btn small safe"> <u>P</u>roceed!</button>
+                <button class="btn small subtle"> <u>+</u> Append</button>
+            </div>
+        </div>
+        <div>
+            <h3> Small V Group </h3>
+            <div class="btn-group-vrt">
+                <button class="btn small primary"> <u>L</u>aunch Rockets!</button>
+                <button class="btn small danger"> <u>A</u>bort!</button>
+                <button class="btn small warn"> <u>A</u>bort!</button>
+                <button class="btn small safe"> <u>P</u>roceed!</button>
+                <button class="btn small subtle"> <u>+</u> Append</button>
+            </div>
+        </div>
+    </details>
     <script>
         function make_active(e) {
             let prev_classname = e.className;

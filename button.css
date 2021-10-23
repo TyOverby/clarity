@@ -2,10 +2,14 @@ body {
     font-family: sans-serif;
 }
 
-button.btn {
+.btn {
     --fast: 0.07s;
     --slow: 0.14s;
     --anim-style: linear;
+    appearance: none;
+    all: unset;
+    display: inline-block;
+    user-select: none;
     box-sizing: border-box;
     font-size: 1em;
     border: 0;
@@ -31,13 +35,13 @@ button.btn {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-button.btn:disabled {
+.btn:disabled {
     cursor: not-allowed;
     outline: none;
     background: repeating-linear-gradient( 45deg, var(--bg), var(--bg) 6px, var(--dsbl) 6px, var(--dsbl) 12px);
 }
 
-button.btn::before {
+.btn::after {
     content: "";
     box-sizing: border-box;
     border-radius: 2px;
@@ -53,84 +57,91 @@ button.btn::before {
     z-index: 0;
 }
 
-button.btn:hover:not(:disabled),
-button.btn:focus:not(:disabled) {
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
     transform: translateY(-1px) translateZ(-1px);
 }
 
-button.btn:hover:not(:disabled)::before,
-button.btn:focus:not(:disabled)::before {
+.btn:hover:not(:disabled)::after,
+.btn:focus:not(:disabled)::after {
     transform: translateY(1px) translateZ(-1px);
 }
 
-button.btn:disabled::before {
+.btn:disabled::after {
     /* 6 root 2 */
     --gap: 8.485281374238px;
     --fill: calc(2 * var(--gap));
     background: repeating-linear-gradient(90deg, var(--bg), var(--bg) var(--gap), var(--dsbl) var(--gap), var(--dsbl) var(--fill));
 }
 
-button.btn:focus {
+.btn:focus {
     outline-offset: -4px;
     outline: 2.0px solid var(--ol, #1BA1F2);
 }
 
-button.btn:active:not(:disabled),
-button.btn.active:not(:disabled) {
+.btn:active:not(:disabled),
+.btn.active:not(:disabled) {
     transform: translateY(3px);
     border-radius: 2px;
 }
 
-button.btn:active:not(:disabled)::before,
-button.btn.active:not(:disabled)::before {
+.btn:active:not(:disabled)::after,
+.btn.active:not(:disabled)::after {
     transform: translateY(-3px) translateZ(-1px);
 }
 
-button.btn u {
+.btn u {
     text-underline-position: from-font;
     text-underline-offset: 1px;
     transition: var(--anim-style) var(--slow) text-decoration-color;
 }
 
-button.btn:disabled u {
+.btn:disabled u {
     text-decoration: none;
 }
 
-button.btn u {
+.btn u {
     text-decoration-color: var(--ol);
 }
 
-button.btn:focus u {
+.btn:focus u {
     text-decoration-color: var(--bg);
 }
 
-button.btn.primary {
+.btn.primary {
     --dsbl: #357eac;
     --bg: #1BA1F2;
     --ol: #b3defb;
     --fg: white;
 }
 
-button.btn.danger {
+.btn.warn {
+    --dsbl: #9c7e23;
+    --bg: #ffbe01;
+    --ol: #ffffff;
+    --fg: white;
+}
+
+.btn.danger {
     --dsbl: #aa5635;
     --bg: #f2581b;
     --ol: #fbbeb3;
     --fg: white;
 }
 
-button.btn.safe {
+.btn.safe {
     --dsbl: #549259;
     --bg: #57c961;
     --ol: #9fe6a4;
     --fg: white;
 }
 
-button.btn.subtle:not(:focus) {
+.btn.subtle:not(:focus) {
     outline-offset: -1px;
     outline: 1px solid #b2b2a4;
 }
 
-button.btn.subtle {
+.btn.subtle {
     outline-offset: -2px;
     --ol: #1BA1F2;
     --dsbl: #cccaab;
@@ -138,13 +149,13 @@ button.btn.subtle {
     --fg: black;
 }
 
-button.btn.small {
+.btn.small {
     font-size: 0.7em;
     font-weight: bold;
     padding: 3px 5px;
 }
 
-button.btn.small u {
+.btn.small u {
     text-decoration-thickness: 2px;
     text-underline-position: unset;
     text-underline-offset: unset;
@@ -152,23 +163,24 @@ button.btn.small u {
 
 div.btn-group-hz {
     display: flex;
+    width: max-content;
 }
 
-div.btn-group-hz button.btn:first-child,
-div.btn-group-hz button.btn:first-child::before {
+div.btn-group-hz .btn:first-child,
+div.btn-group-hz .btn:first-child::after {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-div.btn-group-hz button.btn:last-child,
-div.btn-group-hz button.btn:last-child::before {
+div.btn-group-hz .btn:last-child,
+div.btn-group-hz .btn:last-child::after {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: inset 1px 0 0 0px var(--dsbl);
 }
 
-div.btn-group-hz button.btn:not(:last-child):not(:first-child),
-div.btn-group-hz button.btn:not(:last-child):not(:first-child)::before {
+div.btn-group-hz .btn:not(:last-child):not(:first-child),
+div.btn-group-hz .btn:not(:last-child):not(:first-child)::after {
     border-radius: 0;
     box-shadow: inset 1px 0 0 0px var(--dsbl);
 }
@@ -179,25 +191,25 @@ div.btn-group-vrt {
     width: max-content;
 }
 
-div.btn-group-vrt button.btn:first-child,
-div.btn-group-vrt button.btn:first-child::before {
+div.btn-group-vrt .btn:first-child,
+div.btn-group-vrt .btn:first-child::after {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-div.btn-group-vrt button.btn:last-child,
-div.btn-group-vrt button.btn:last-child::before {
+div.btn-group-vrt .btn:last-child,
+div.btn-group-vrt .btn:last-child::after {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     /*box-shadow: inset 1px 0 0 0px var(--dsbl);*/
 }
 
-div.btn-group-vrt button.btn:not(:last-child):not(:first-child),
-div.btn-group-vrt button.btn:not(:last-child):not(:first-child)::before {
+div.btn-group-vrt .btn:not(:last-child):not(:first-child),
+div.btn-group-vrt .btn:not(:last-child):not(:first-child)::after {
     border-radius: 0;
     box-shadow: inset 0 1px 0 0px var(--dsbl);
 }
 
-div.btn-group-vrt button.btn:not(:first-child) {
+div.btn-group-vrt .btn:not(:first-child) {
     margin-top: 0px;
 }

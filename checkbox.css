@@ -1,0 +1,36 @@
+input[type="checkbox"].btn {
+    content: "foo";
+    padding-top: 2px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 7px;
+    outline: none;
+    margin-left: 1.5em;
+}
+
+input[type="checkbox"].btn::after {
+    background: var(--bg);
+    color: var(--fg);
+    margin-left: -1.5em;
+    padding-left: 0.5em;
+    padding-bottom: 1.5em;
+    width: calc(100% + 1.5em);
+    outline: 3px solid var(--dsbl);
+    outline-offset: -3px;
+}
+
+input[type="checkbox"].btn:checked::after {
+    content: "✔";
+}
+
+input[type="checkbox"].btn:not(:checked)::after {
+    content: " ";
+}
+
+input[type="checkbox"].btn:checked::before {
+    content: " " attr(data-text);
+}
+
+input[type="checkbox"].btn:not(:checked)::before {
+    content: " " attr(data-text);
+}
