@@ -9,6 +9,10 @@
             color: #374453;
         }
         
+        label {
+            user-select: none;
+        }
+        
         details {
             margin: 1em;
             margin-left: 2em;
@@ -28,8 +32,38 @@
     <details open>
         <summary> Checkboxes </summary>
         <div>
-            <input type="checkbox" class="btn primary" data-text="Wash Dishes">
-            <input type="checkbox" checked class="btn primary" data-text="Wash Dishes">
+            <label>
+                <input type="checkbox" checked class="btn subtle">
+                Wash Dishes
+            </label>
+            <label>
+                <input type="checkbox" class="btn subtle">
+                Do Laundry
+            </label>
+        </div>
+        <div>
+            <h2> Disabled </h2>
+            <label>
+                <input disabled checked type="checkbox" class="btn subtle">
+                Wash Dishes
+            </label>
+            <label>
+                <input disabled type="checkbox" class="btn subtle">
+                Do Laundry
+            </label>
+        </div>
+        <div>
+            <h2>V Group</h2>
+            <div style="display:flex; flex-direction: column;">
+                <label>
+                <input type="checkbox" checked class="btn subtle">
+                Wash Dishes
+            </label>
+                <label>
+                <input type="checkbox" class="btn subtle">
+                Do Laundry
+            </label>
+            </div>
         </div>
     </details>
     <details>
@@ -42,6 +76,14 @@
             <button class="btn warn"> <u>A</u>bort!</button>
             <button class="btn safe"> <u>P</u>roceed!</button>
             <button class="btn subtle"> <u>+</u> Append</button>
+        </div>
+        <div>
+            <h2> thinking </h2>
+            <button class="btn thinking primary"> <u>L</u>aunch Rockets!</button>
+            <button class="btn thinking danger"> <u>A</u>bort!</button>
+            <button class="btn thinking warn"> <u>A</u>bort!</button>
+            <button class="btn thinking safe"> <u>P</u>roceed!</button>
+            <button class="btn thinking subtle"> <u>+</u> Append</button>
         </div>
         <div>
             <h3> Small </h3>

@@ -118,7 +118,7 @@ body {
 .btn.warn {
     --dsbl: #9c7e23;
     --bg: #ffbe01;
-    --ol: #ffffff;
+    --ol: #fde292;
     --fg: white;
 }
 
@@ -153,6 +153,7 @@ body {
     font-size: 0.7em;
     font-weight: bold;
     padding: 3px 5px;
+    text-transform: uppercase;
 }
 
 .btn.small u {
@@ -176,13 +177,13 @@ div.btn-group-hz .btn:last-child,
 div.btn-group-hz .btn:last-child::after {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    box-shadow: inset 1px 0 0 0px var(--dsbl);
+    box-shadow: inset 1px 0 0 0px var(--ol);
 }
 
 div.btn-group-hz .btn:not(:last-child):not(:first-child),
 div.btn-group-hz .btn:not(:last-child):not(:first-child)::after {
     border-radius: 0;
-    box-shadow: inset 1px 0 0 0px var(--dsbl);
+    box-shadow: inset 1px 0 0 0px var(--ol);
 }
 
 div.btn-group-vrt {
@@ -207,9 +208,70 @@ div.btn-group-vrt .btn:last-child::after {
 div.btn-group-vrt .btn:not(:last-child):not(:first-child),
 div.btn-group-vrt .btn:not(:last-child):not(:first-child)::after {
     border-radius: 0;
-    box-shadow: inset 0 1px 0 0px var(--dsbl);
+    box-shadow: inset 0 1px 0 0px var(--ol);
 }
 
 div.btn-group-vrt .btn:not(:first-child) {
     margin-top: 0px;
+}
+
+@keyframes thinking {
+    0% {
+        content: "⠁";
+    }
+    14.285714285% {
+        content: "⠄";
+    }
+    28.5714285714% {
+        content: "⡀";
+    }
+    42.8571428571% {
+        content: "⢀";
+    }
+    57.1428571429% {
+        content: "⠠";
+    }
+    71.4285714286% {
+        content: "⠐";
+    }
+    85.7142857143% {
+        content: "⠈";
+    }
+    100% {
+        content: "⠁";
+    }
+}
+
+@keyframes a {
+    0%,
+    100% {
+        content: "⠋";
+    }
+    25% {
+        content: "⠙";
+    }
+    50% {
+        content: "⠴";
+    }
+    75% {
+        content: "⠦";
+    }
+}
+
+.btn::before {
+    content: "";
+    float: right;
+    width: 0px;
+    transition: linear var(--slow) width, linear var(--slow) padding-left;
+    position: relative;
+    top: -3px;
+    max-height: 100%;
+    height: 0;
+}
+
+.btn.thinking::before {
+    width: 1em;
+    animation: a 0.5s linear infinite;
+    padding-left: 0.5em;
+    margin-right: -0.25em;
 }

@@ -1,4 +1,4 @@
-input[type="checkbox"].btn {
+/*input[type="checkbox"].btn {
     content: "foo";
     padding-top: 2px;
     padding-bottom: 3px;
@@ -18,19 +18,26 @@ input[type="checkbox"].btn::after {
     outline: 3px solid var(--dsbl);
     outline-offset: -3px;
 }
+*/
 
-input[type="checkbox"].btn:checked::after {
-    content: "✔";
-}
-
-input[type="checkbox"].btn:not(:checked)::after {
+input[type="checkbox"].btn {
+    width: 1em;
+    height: 1em;
+    padding: 0;
     content: " ";
 }
 
+input[type="checkbox"].btn:checked:disabled::before {
+    opacity: 0.7;
+}
+
 input[type="checkbox"].btn:checked::before {
-    content: " " attr(data-text);
+    position: absolute;
+    top: -0.3em;
+    left: 0.1em;
+    content: "✔";
 }
 
 input[type="checkbox"].btn:not(:checked)::before {
-    content: " " attr(data-text);
+    position: relative;
 }
